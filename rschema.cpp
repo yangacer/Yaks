@@ -4,7 +4,7 @@
 #include <istream>
 #include <ostream>
 
-namespace Record
+namespace Yaks
 {
 
 	std::ostream& 
@@ -86,12 +86,15 @@ namespace Record
 				msg += type_str;
 				throw msg.c_str();
 			}
-			// TODO: factory is strill required here
-			// proto_->vals_.push_back(factory::Instance().create(type_str));
-			//proto_->vals_.push_back(Variant());
+			
+			// add typed variant to proto_
+			proto_->vals_.push_back(factory::Instance().create(type_str));
+			
+			// update indices
 			idx_[field_name] = proto_->vals_.size() - 1;
 			ridx_[(FIELD_INDEX)proto_->vals_.size() - 1].assign(field_name);
 			types_[(FIELD_INDEX)proto_->vals_.size() - 1].assign(type_str);
+
 			version_++;
 		}catch(...){
 			throw "rschema: defin_field failed";	

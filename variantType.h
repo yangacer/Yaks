@@ -1,7 +1,8 @@
 #ifndef _VARIANT_TYPE_H
 #define _VARIANT_TYPE_H
+#include "boost/variant/variant.hpp"
 
-namespace Record {
+namespace Yaks {
 
 	typedef boost::variant<
 		char, unsigned char, 

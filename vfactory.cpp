@@ -1,6 +1,6 @@
 #include "vfactory.h"
 
-namespace Record
+namespace Yaks
 {
 	factory_::factory_()
 	: storage_()
@@ -28,4 +28,4 @@ namespace Record
 
 	}
 	
-}// end of Record namespace
+}// end of Yaks namespace

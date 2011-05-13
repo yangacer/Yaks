@@ -9,7 +9,7 @@
 typedef unsigned char FIELD_INDEX;
 
 
-namespace Record
+namespace Yaks
 {
 	struct record;
 	struct rschema;
@@ -83,6 +83,6 @@ namespace Record
 		unsigned int version_;
 	};
 
-} // endof Record namespace
+} // endof Yaks namespace
 
 #endif

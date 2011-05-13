@@ -8,7 +8,7 @@
 #include "loki/Singleton.h"
 #include "variantType.h"
 
-namespace Record
+namespace Yaks
 {
 	struct factory_
 	{
@@ -32,62 +32,11 @@ namespace Record
 		Storage storage_;
 	};
 
+	// TODO: deal with DLL/share lib
 	typedef Loki::SingletonHolder<factory_> factory;
 
-	/*
-	static boost::unordered_map<std::string, Variant> factory;
-	
-	template<typename T>
-	void 
-	factory_register(char const *type_str)
-	{
-		if( factory.end() != factory.find(type_str) )
-			return;
-		factory[type_str] = T(); 
-	}
-	
-	
-	void
-	register_default()
-	{
-		if(factory.size()) return;
 
-		factory_register<int>("INT");
-		
-		
-		factory_register<unsigned int>("UINT");
-		
-		factory_register<char>("CHAR");
-
-		factory_register<unsigned char>("UCHAR");
-		
-		factory_register<double>("DOUBLE");
-
-		
-		factory_register<long long>("LLONG");
-
-		factory_register<unsigned long long>("ULLONG");
-
-		factory_register<std::string>("CHAR[]");
-		factory_register<std::string>("STR");
-		
-	}
-	
-
-	inline Variant const&
-	factory_create(char const *type_str) throw (char const*)
-	{
-		//register_default();
-		
-		boost::unordered_map<std::string, Variant>::iterator iter;
-
-		if( factory.end() == (iter = factory.find(type_str)) )	
-			throw "factory: unkown type\n";
-		return iter->second;
-	}
-	*/
-
-}// end of namespace Record
+}// end of namespace Yaks
 
 #endif // end of header guard 
 

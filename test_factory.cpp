@@ -4,11 +4,11 @@
 
 int main()
 {
-	using Record::Variant;
-	using Record::factory;
+	using Yaks::Variant;
+	using Yaks::factory;
 
-	//Record::factory_register<std::string>("STR");
-	//Record::Variant v (Record::factory_create("STR"));
+	//Yaks::factory_register<std::string>("STR");
+	//Yaks::Variant v (Yaks::factory_create("STR"));
 	
 	Variant v (factory::Instance().create("STR"));
 	
