@@ -1,0 +1,16 @@
+Features:
+
+1. Record - A Key-value Store
+   Field name as a key and boost::variant as a value
+   which is a efficient and strong variant structure
+   implementation.
+
+2. Serializable (Under Construction)
+   Record structure is independent of serialization 
+   policies. Client can use native serialization 
+   provided by this library or customize a new policy.
+
+3. Database Table Simulation (Under Construction)
+   Yaks's RecordFile class can be used as a table
+   of convensional database which is associated with 
+   schema and SQL query.
