@@ -1,6 +1,7 @@
 #include <sstream>
 #include <ostream>
 #include <cstring>
+#include "strref.h"
 #include "record.h"
 #include "boost/variant/apply_visitor.hpp"
 #include "boost/variant/static_visitor.hpp"
@@ -27,6 +28,38 @@ private:
 	std::stringstream &is_;
 };
 
+struct str_in
+: public boost::static_visitor<bool>
+{
+	str_in(char const* cstr, unsigned int size)
+	: cstr_(cstr), size_(size)
+	{}
+
+	template<typename T>
+	bool operator()(T& val)
+	{
+		std::stringstream cvt;
+		cvt.write(cstr_, size_);
+		cvt>>val;
+		return (bool)cvt;
+	}
+
+	bool operator()(std::string &val)
+	{
+		val.assign(cstr_, size_);
+		return true;
+	}
+
+	bool operator()(Yaks::str_ref &val)
+	{
+		val.assign(cstr_, size_);
+		return true;
+	}
+private:
+	char const *cstr_;
+	unsigned int size_;
+};
+
 struct strstream_out
 : public boost::static_visitor<std::stringstream&>
 {
@@ -42,6 +75,7 @@ struct strstream_out
 private:
 	std::stringstream &os_;
 };
+
 
 namespace Yaks
 {
@@ -101,15 +135,27 @@ namespace Yaks
 
 	// -----------------  Getter of Values' Iterator ----------------
 	
-	record::StorageType::iterator
+	record::iterator
+	record::begin()
+	{ return vals_.begin(); }
+
+	record::iterator
 	record::end()
 	{ return vals_.end();	}
+	
+	record::const_iterator
+	record::begin() const
+	{ return vals_.begin(); }
 
-	record::StorageType::const_iterator
+	record::const_iterator
+	record::end() const
+	{ return vals_.end();	}
+
+	record::const_iterator
 	record::const_begin() const
 	{ return vals_.begin(); }
 
-	record::StorageType::const_iterator
+	record::const_iterator
 	record::const_end() const
 	{ return vals_.end();	}
 
@@ -123,9 +169,7 @@ namespace Yaks
 	record::fromString(char const* field_name, char const *cstr, unsigned int size)
 	{
 		if(!schema_) throw "record: schema is undefined\n";
-		std::stringstream cvt;
-		cvt.write(cstr, size);
-		strstream_in cvt_visitor(cvt);
+		str_in cvt_visitor(cstr, size);
 		return boost::apply_visitor(cvt_visitor, at(field_name));
 	}
 

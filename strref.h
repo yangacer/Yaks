@@ -11,7 +11,7 @@
 
 namespace Yaks
 {
-
+	
 	struct str_ref
 	{
 		str_ref();
@@ -59,18 +59,18 @@ namespace Yaks
 
 	std::ostream &operator<<(std::ostream& os, str_ref const& sref);
 
+	struct record;
+
+	void
+	cp_strref(std::string &buffer, record &r);
+
+	void
+	rebuild_ref(std::string const &buffer, record *beg, record *end);
 } // end of Yaks namespace
 
+
+
 /*
-unsigned int
-referenced_count(record const& r);
-
-unsigned int
-cp_chg_referenced(char *buf, record &r);
-
-void
-cp_strref(std::string &buffer, record &r);
-
 void
 rebuild_ref(std::string &buffer, record *beg, record *end);
 

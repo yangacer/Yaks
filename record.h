@@ -21,6 +21,8 @@ namespace Yaks
 	friend struct rschema;
 	public:
 		typedef std::vector<Variant> StorageType;
+		typedef StorageType::iterator iterator;
+		typedef StorageType::const_iterator const_iterator;
 
 		record();
 		
@@ -56,21 +58,27 @@ namespace Yaks
 		/** Get begin iterator of fields
 		 *  @return iterator
 		 */
-		StorageType::iterator
+		iterator
 		begin();
 
 		/** Get end iterator of fields
 		 *  @return iterator
 		 */
-		StorageType::iterator
+		iterator
 		end();
+		
+		const_iterator
+		begin() const;
 
-		/** Get constant begin iterator
+		const_iterator
+		end() const;
+
+		/** Get constant begin iterator (deprecated)
 		 */
 		StorageType::const_iterator
 		const_begin() const;
 
-		/** Get constant end iterator
+		/** Get constant end iterator (deprecated)
 		 */
 		StorageType::const_iterator
 		const_end() const;

@@ -1,6 +1,7 @@
 #ifndef _VARIANT_TYPE_H
 #define _VARIANT_TYPE_H
 #include "boost/variant/variant.hpp"
+#include "strref.h"
 
 namespace Yaks {
 
@@ -9,7 +10,7 @@ namespace Yaks {
 		int, unsigned int,
 		double,
 		long long, unsigned long long,
-		std::string 
+		std::string, str_ref 
 			> Variant; 
 }
 
