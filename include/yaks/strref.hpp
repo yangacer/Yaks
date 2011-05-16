@@ -62,7 +62,7 @@ namespace Yaks
 	struct record;
 
 	void
-	cp_strref(std::string &buffer, record &r);
+	cp_strref(std::string &buffer, record const&r);
 
 	void
 	rebuild_ref(std::string const &buffer, record *beg, record *end);

@@ -53,7 +53,8 @@ namespace Private__
 	};
 }
 
-namespace Yaks {
+namespace Yaks 
+{
 
 	str_ref::str_ref()
 	: data_(0), size_(0)
