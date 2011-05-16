@@ -1,5 +1,5 @@
-#include "record.h"
-#include "rschema.h"
+#include "record.hpp"
+#include "rschema.hpp"
 
 #include <vector>
 #include <iostream>

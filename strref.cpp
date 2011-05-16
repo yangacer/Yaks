@@ -1,5 +1,5 @@
-#include "strref.h"
-#include "record.h"
+#include "strref.hpp"
+#include "record.hpp"
 #include "boost/variant/static_visitor.hpp"
 #include "boost/variant/apply_visitor.hpp"
 #include <cstring>

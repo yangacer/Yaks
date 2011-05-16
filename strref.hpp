@@ -1,5 +1,5 @@
-#ifndef _STRREF_H
-#define _STRREF_H
+#ifndef _STRREF_HPP
+#define _STRREF_HPP
 
 #include <iosfwd>
 #include <cstring>

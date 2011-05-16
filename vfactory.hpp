@@ -1,12 +1,12 @@
-#ifndef _VFACTORY_H
-#define _VFACTORY_H
+#ifndef _VFACTORY_HPP
+#define _VFACTORY_HPP
 
 // #include <map>
 #include <string>
 #include "boost/variant/variant.hpp"
 #include "boost/unordered_map.hpp"
 #include "loki/Singleton.h"
-#include "variantType.h"
+#include "variantType.hpp"
 
 namespace Yaks
 {

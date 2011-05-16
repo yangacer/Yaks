@@ -1,6 +1,6 @@
-#include "rschema.h"
-#include "record.h"
-#include "vfactory.h"
+#include "rschema.hpp"
+#include "record.hpp"
+#include "vfactory.hpp"
 #include <istream>
 #include <ostream>
 

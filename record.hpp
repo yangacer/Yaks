@@ -1,14 +1,14 @@
-#ifndef _RECORD_H_
-#define _RECORD_H_
+#ifndef _RECORD_HPP_
+#define _RECORD_HPP_
 
 #include <vector>
 #include <string>
 #include <iosfwd>
 
-#include "variantType.h"
+#include "variantType.hpp"
 #include "boost/variant/get.hpp"
 
-#include "rschema.h"
+#include "rschema.hpp"
 
 namespace Yaks
 {

@@ -1,5 +1,5 @@
-#ifndef _RSCHEMA_H
-#define _RSCHEMA_H
+#ifndef _RSCHEMA_HPP
+#define _RSCHEMA_HPP
 
 #include <string>
 #include <vector>

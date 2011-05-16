@@ -1,4 +1,4 @@
-#include "vfactory.h"
+#include "vfactory.hpp"
 
 namespace Yaks
 {
