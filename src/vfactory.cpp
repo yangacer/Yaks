@@ -1,4 +1,5 @@
 #include "yaks/vfactory.hpp"
+#include "yaks/strref.hpp"
 
 namespace Yaks
 {
@@ -14,6 +15,7 @@ namespace Yaks
 		join<unsigned long long>("ULLONG");
 		join<std::string>("CHAR[]");
 		join<std::string>("STR");
+		join<str_ref>("STRREF");
 	}
 	
 
