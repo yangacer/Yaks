@@ -1,7 +1,7 @@
 #ifndef _VARIANT_TYPE_H
 #define _VARIANT_TYPE_H
 #include "boost/variant/variant.hpp"
-#include "strref.h"
+#include "yaks/strref.hpp"
 
 namespace Yaks {
 

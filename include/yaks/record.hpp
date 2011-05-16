@@ -5,10 +5,10 @@
 #include <string>
 #include <iosfwd>
 
-#include "variantType.hpp"
+#include "yaks/variantType.hpp"
 #include "boost/variant/get.hpp"
 
-#include "rschema.hpp"
+#include "yaks/rschema.hpp"
 
 namespace Yaks
 {
