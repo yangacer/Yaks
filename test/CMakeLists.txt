@@ -6,3 +6,6 @@ target_link_libraries(fac yaks)
 
 add_executable(overall main.cpp)
 target_link_libraries(overall yaks)
+
+add_executable(record_test record_test.cpp)
+target_link_libraries(record_test yaks)

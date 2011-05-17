@@ -83,6 +83,9 @@ namespace Yaks
 	record::record()
 	: schema_(0)
 	{}
+	
+	record::operator bool() const
+	{ return 0 != schema_; }
 
 	Variant&
 	record::operator[](char const* field_name)
@@ -160,7 +163,7 @@ namespace Yaks
 	{ return vals_.end();	}
 
 	// ----------------- Misc --------------------
-
+	
 	rschema const&
 	record::schema() const
 	{ return *schema_; } 

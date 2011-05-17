@@ -26,6 +26,8 @@ namespace Yaks
 
 		record();
 		
+		operator bool() const;
+
 		// --------------- Offset Operators -------------------
 		Variant&
 		operator[](char const* field_name);
