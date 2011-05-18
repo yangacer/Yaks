@@ -1,11 +1,9 @@
 include_directories( /usr/local/include ${PROJECT_SOURCE_DIR}/include )
 link_directories( ${PROJECT_BINARY_DIR}/src )
 
-add_executable(fac test_factory.cpp)
-target_link_libraries(fac yaks)
+set(TESTS record factory scope gutils)
+foreach(tg ${TESTS})
+	add_executable(${tg} ${tg}.cpp)
+	target_link_libraries(${tg} yaks)
+endforeach(tg)
 
-add_executable(overall main.cpp)
-target_link_libraries(overall yaks)
-
-add_executable(record_test record_test.cpp)
-target_link_libraries(record_test yaks)

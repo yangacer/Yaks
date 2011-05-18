@@ -3,6 +3,7 @@
 #include <cstring>
 #include "yaks/strref.hpp"
 #include "yaks/record.hpp"
+#include "yaks/rscope.hpp"
 #include "boost/variant/apply_visitor.hpp"
 #include "boost/variant/static_visitor.hpp"
 
@@ -82,7 +83,10 @@ namespace Yaks
 
 	record::record()
 	: schema_(0)
-	{}
+	{ 
+		if(0 != rscope::schema())
+			rscope::schema()->make(*this); 
+	}
 	
 	record::operator bool() const
 	{ return 0 != schema_; }

@@ -139,7 +139,7 @@ namespace Yaks
 
 	private:
 		std::vector<Variant> vals_;
-		rschema *schema_;
+		rschema const*schema_;
 		unsigned int schema_ver_;
 	};
 	
