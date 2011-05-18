@@ -22,7 +22,6 @@ namespace Yaks
 			if( storage_.end() != storage_.find(type_str) )
 				return;
 			storage_[type_str] = T(); 
-	
 		}
 
 		Variant const&

@@ -90,40 +90,28 @@ namespace Yaks
 
 		template<typename T>
 		T&
-		get(char const* field_name) throw (char const*)
-		{	return boost::get<T>(vals_[schema_->find(field_name)]); }
+		get(char const* field_name) throw (char const*);
 
 		template<typename T>
 		T const&
-		get(char const* field_name) const throw (char const*)
-		{	
-			if(!schema_) throw "record: schema is undefined\n";
-			return boost::get<T>(vals_[schema_->find(field_name)]); 
-		}
-		
-		template<typename T>
-		void
-		set(char const* field_name, T const & val)
-		{	
-			if(!schema_) throw "record: schema is undefined\n";
-			vals_[schema_->find(field_name)] = val; 
-		}
-			
+		get(char const* field_name) const throw (char const*);
+
 		template<typename T>
 		T&
-		get(unsigned int off) throw (char const*)
-		{	return boost::get<T>(vals_[off]); }
+		get(unsigned int off) throw (char const*);
 
 		template<typename T>
 		T const&
-		get(unsigned int off) const throw (char const*)
-		{	return boost::get<T>(vals_[off]); }
+		get(unsigned int off) const throw (char const*);
 		
 		template<typename T>
 		void
-		set(unsigned int off, T const & val)
-		{	vals_[off] = val; }
-		
+		set(char const* field_name, T const & val);
+			
+		template<typename T>
+		void
+		set(unsigned int off, T const & val);
+
 		// ----------------- Misc --------------------
 
 		rschema const& schema() const;
@@ -142,29 +130,21 @@ namespace Yaks
 		std::ostream&
 		writeTo(std::ostream &os, char const* field_name) const;
 
-		
 		int
 		compare(char const *field_name, record const & rhs) const;
-		
 
 		template<typename T>
 		int
-		compare(char const* field_name, T const &rhs) const
-		{
-			if(get<T>(field_name) < rhs)
-				return -1;	
-			else if(get<T>(field_name) == rhs)
-				return 0;
-			return 1;
-		}
-		
+		compare(char const* field_name, T const &rhs) const;
 
 	private:
 		std::vector<Variant> vals_;
 		rschema *schema_;
 		unsigned int schema_ver_;
 	};
-
+	
 } // end of namespace Yaks
+
+#include "yaks/record.tcc"
 
 #endif
