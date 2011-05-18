@@ -3,12 +3,13 @@
 
 #include <string>
 #include "boost/unordered_map.hpp"
+#include "yaks/export.hpp"
 
 namespace Yaks
 {
 	struct rschema;
 	
-	class global_schema
+	class YAKS_EXPORT global_schema
 	{
 		typedef boost::unordered_map<std::string, rschema const*> StorageType;
 	public:
@@ -25,7 +26,7 @@ namespace Yaks
 		static StorageType store_;
 	};
 
-	class rscope
+	class YAKS_EXPORT rscope
 	{
 	public:
 		rscope(rschema const* rs);

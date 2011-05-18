@@ -1,8 +1,12 @@
 #include "yaks/vfactory.hpp"
 #include "yaks/strref.hpp"
 
+
+LOKI_SINGLETON_INSTANCE_DEFINITION(Loki::SingletonHolder<Yaks::factory_>)
+
 namespace Yaks
 {
+
 	factory_::factory_()
 	: storage_()
 	{

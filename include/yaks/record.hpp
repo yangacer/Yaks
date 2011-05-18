@@ -9,6 +9,7 @@
 #include "boost/variant/get.hpp"
 
 #include "yaks/rschema.hpp"
+#include "yaks/export.hpp"
 
 namespace Yaks
 {
@@ -16,7 +17,7 @@ namespace Yaks
 
 	struct rschema;
 
-	class record
+	class YAKS_EXPORT record
 	{
 	friend struct rschema;
 	public:

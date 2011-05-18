@@ -5,16 +5,20 @@
 #include <string>
 #include "boost/variant/variant.hpp"
 #include "boost/unordered_map.hpp"
+#include "yaks/export.hpp"
+#define LOKI_SINGLETON_EXPORT YAKS_EXPORT
 #include "loki/Singleton.h"
 #include "yaks/variantType.hpp"
 
 namespace Yaks
 {
+	
 	struct factory_
 	{
+		template<class T> friend struct Loki::CreateUsingNew;
+
 		typedef boost::unordered_map<std::string, Variant> Storage;
 
-		factory_();
 		
 		template<typename T>
 		void join(char const *type_str)
@@ -28,14 +32,19 @@ namespace Yaks
 		create(char const *type_str) const throw (char const*);
 
 	private:
+		factory_();
+		factory_(factory_ const &cp);
+		factory_& operator = (factory_ const &cp);
+
 		Storage storage_;
 	};
 
-	// TODO: deal with DLL/share lib
-	typedef Loki::SingletonHolder<factory_> factory;
+	typedef Loki::Singleton<factory_> factory;
 
 
 }// end of namespace Yaks
+
+
 
 #endif // end of header guard 
 

@@ -4,6 +4,7 @@
 #include <iosfwd>
 #include <cstring>
 #include <string>
+#include "yaks/export.hpp"
 
 #define SIX_BOOL_OP_DECL(C,X) bool operator X (C const& rhs)const
 #define GLOBAL_SBOP_FUNC(T,U,X,Y) bool operator X \
@@ -12,7 +13,7 @@
 namespace Yaks
 {
 	
-	struct str_ref
+	struct YAKS_EXPORT str_ref
 	{
 		str_ref();
 		str_ref(char const* data, unsigned int size);

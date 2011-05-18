@@ -5,6 +5,7 @@
 #include <vector>
 #include <iosfwd>
 #include "boost/unordered_map.hpp"
+#include "yaks/export.hpp"
 
 typedef unsigned char FIELD_INDEX;
 
@@ -18,7 +19,7 @@ namespace Yaks
 	std::istream& operator>>(std::istream& is, rschema &rs);
 
 
-	struct rschema 
+	struct YAKS_EXPORT rschema 
 	{	
 		friend std::ostream& operator<<(std::ostream& os, rschema &rs);
 		friend std::istream& operator>>(std::istream& is, rschema &rs);
