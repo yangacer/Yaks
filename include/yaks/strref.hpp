@@ -58,14 +58,14 @@ namespace Yaks
 	inline GLOBAL_SBOP_FUNC(std::string,str_ref,!=,!=)
 
 
-	std::ostream &operator<<(std::ostream& os, str_ref const& sref);
+	std::ostream YAKS_EXPORT &operator<<(std::ostream& os, str_ref const& sref);
 
 	struct record;
 
-	void
+	void YAKS_EXPORT
 	cp_strref(std::string &buffer, record const&r);
 
-	void
+	void YAKS_EXPORT
 	rebuild_ref(std::string const &buffer, record *beg, record *end);
 } // end of Yaks namespace
 

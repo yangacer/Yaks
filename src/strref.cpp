@@ -70,11 +70,11 @@ namespace Yaks
 
 	str_ref&
 	str_ref::assign(char const* data, unsigned int size)
-	{	data_ = data; size_ = size;	}
+	{	data_ = data; size_ = size;	return *this; }
 
 	str_ref&
 	str_ref::assign(char const* data_beg, char const* data_end)
-	{	data_ = data_beg; size_ = data_end - data_beg;	}
+	{	data_ = data_beg; size_ = data_end - data_beg;	return *this; }
 
 	char const*
 	str_ref::data() const

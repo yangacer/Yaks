@@ -1,5 +1,5 @@
 
-include_directories( /usr/local/include 
+include_directories( D:/contrib/include
 	${PROJECT_SOURCE_DIR}/include )
 
 option (BUILD_SHARED_LIB "Build shared library" OFF)
@@ -15,4 +15,6 @@ endif()
 add_library(yaks ${LIB_TYPE} vfactory.cpp record.cpp rschema.cpp strref.cpp rscope.cpp)
 
 install (TARGETS yaks LIBRARY DESTINATION lib
-	ARCHIVE DESTINATION lib)
+	ARCHIVE DESTINATION lib
+	RUNTIME DESTINATION lib
+	)
