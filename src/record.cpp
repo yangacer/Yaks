@@ -56,6 +56,10 @@ struct str_in
 		val.assign(cstr_, size_);
 		return true;
 	}
+
+	bool operator()(boost::shared_ptr<Yaks::record> &val)
+	{ return true; }
+
 private:
 	char const *cstr_;
 	unsigned int size_;

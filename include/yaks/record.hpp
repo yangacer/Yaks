@@ -6,14 +6,12 @@
 #include <iosfwd>
 
 #include "yaks/variantType.hpp"
-#include "boost/variant/get.hpp"
 
 #include "yaks/rschema.hpp"
 #include "yaks/export.hpp"
 
 namespace Yaks
 {
-	
 
 	struct rschema;
 
@@ -70,9 +68,13 @@ namespace Yaks
 		iterator
 		end();
 		
+		/** Get constant begin iterator
+		 */
 		const_iterator
 		begin() const;
 
+		/** Get constant end iterator
+		 */
 		const_iterator
 		end() const;
 
@@ -117,23 +119,53 @@ namespace Yaks
 
 		rschema const& schema() const;
 		
-		
+		/** Set field value from a serialized string.
+		 *  @param field_name 
+		 *  @param cstr C-string
+		 *  @param size
+		 *  @return ture/false for sucess of deserialization.
+		 *  @remark This method allows client to change value 
+		 *  of a field without changing type of the field.
+		 */
 		bool 
 		fromString(char const* field_name, char const *cstr, unsigned int size);
 		
+		/** Set field value from a null-terminated and serialized string.
+		 *  @param field_name 
+		 *  @param cstr C-string
+		 *  @param size
+		 *  @return ture/false for sucess of deserialization.
+		 */
 		bool
 		fromString(char const* field_name, char const *cstr);
 		
-		
+		/** Serialize field value.
+		 *  @return Human readable text.
+		 */
 		std::string
 		toString(char const* field_name) const;
 		
+		/** Serialize filed value to specific output stream
+		 *  @param os Output stream
+		 *  @param field_name
+		 *  @return The output stream
+		 */
 		std::ostream&
 		writeTo(std::ostream &os, char const* field_name) const;
 
+		/** Compare a field of two records.
+		 *  @param field_name
+		 *  @param rhs
+		 *  @return -1 for this < rhs, 0 for equal, and 1 for greater
+		 */
 		int
 		compare(char const *field_name, record const & rhs) const;
-
+		
+		/** Compare a feild with typed value.
+		 *  @param field_name
+		 *  @param rhs
+		 *  @return -1 for this < rhs, 0 for equal, and 1 for greater
+		 */
 		template<typename T>
 		int
 		compare(char const* field_name, T const &rhs) const;
