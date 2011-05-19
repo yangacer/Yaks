@@ -13,7 +13,7 @@
 namespace Yaks
 {
 	
-	struct factory_
+	struct YAKS_EXPORT factory_
 	{
 		template<class T> friend struct Loki::CreateUsingNew;
 
