@@ -1,8 +1,8 @@
 #include "yaks/vfactory.hpp"
 #include "yaks/strref.hpp"
+#include "loki/Singleton.h"
 
-
-LOKI_SINGLETON_INSTANCE_DEFINITION(Loki::SingletonHolder<Yaks::factory_>)
+// LOKI_SINGLETON_INSTANCE_DEFINITION(Loki::SingletonHolder<Yaks::factory_>)
 
 namespace Yaks
 {
@@ -33,5 +33,10 @@ namespace Yaks
 		return iter->second;
 
 	}
-	
+
+	factory_& factory::Instance()
+	{ return Loki::SingletonHolder<factory_>::Instance(); }
+
 }// end of Yaks namespace
+
+//template class Loki::Singleton<Yaks::factory_>;
