@@ -57,7 +57,7 @@ struct str_in
 		return true;
 	}
 
-	bool operator()(boost::shared_ptr<Yaks::record> &val)
+	bool operator()(Yaks::record &val)
 	{ return true; }
 
 private:

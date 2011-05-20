@@ -1,18 +1,15 @@
 #ifndef _VFACTORY_HPP
 #define _VFACTORY_HPP
 
-// #include <map>
 #include <string>
-#include "boost/variant/variant.hpp"
 #include "boost/unordered_map.hpp"
-#include "yaks/export.hpp"
-//#define LOKI_SINGLETON_EXPORT YAKS_EXPORT
 #include "loki/Singleton.h"
+#include "yaks/export.hpp"
 #include "yaks/variantType.hpp"
 
 namespace Yaks
 {
-	
+	/*
 	struct YAKS_EXPORT factory_
 	{
 		template<class T> friend struct Loki::CreateUsingNew;
@@ -38,10 +35,12 @@ namespace Yaks
 
 		Storage storage_;
 	};
+	*/
 
 	class YAKS_EXPORT factory {
 	public:
-		static factory_& Instance();
+		static Variant const&
+		create(char const *type_str);
 	};
 
 }// end of namespace Yaks

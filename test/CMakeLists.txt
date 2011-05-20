@@ -9,9 +9,9 @@ endif()
 
 link_directories( ${PROJECT_BINARY_DIR}/src )
 
-set(TESTS record scope factory)
+set(TESTS record scope)
 
-add_definitions(-DYAKS_DLL)
+#add_definitions(-DYAKS_DLL)
 
 foreach(tg ${TESTS})
 	add_executable(${tg} ${tg}.cpp)

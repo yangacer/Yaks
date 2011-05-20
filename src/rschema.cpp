@@ -88,7 +88,7 @@ namespace Yaks
 			}
 			
 			// add typed variant to proto_
-			proto_->vals_.push_back(factory::Instance().create(type_str));
+			proto_->vals_.push_back(factory::create(type_str));
 			
 			// update indices
 			idx_[field_name] = proto_->vals_.size() - 1;

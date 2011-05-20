@@ -19,7 +19,7 @@ namespace Yaks {
 		double,
 		long long, unsigned long long,
 		std::string, str_ref,
-		boost::shared_ptr<record>
+		boost::recursive_wrapper<record>
 	> Variant; 
 }
 

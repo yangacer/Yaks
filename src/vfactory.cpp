@@ -1,12 +1,37 @@
 #include "yaks/vfactory.hpp"
 #include "yaks/strref.hpp"
+#include "yaks/record.hpp"
 #include "loki/Singleton.h"
 
 // LOKI_SINGLETON_INSTANCE_DEFINITION(Loki::SingletonHolder<Yaks::factory_>)
 
 namespace Yaks
 {
+	struct factory_
+	{
+		template<class T> friend struct Loki::CreateUsingNew;
 
+		typedef boost::unordered_map<std::string, Variant> Storage;
+
+		
+		template<typename T>
+		void join(char const *type_str)
+		{
+			if( storage_.end() != storage_.find(type_str) )
+				return;
+			storage_[type_str] = T(); 
+		}
+
+		Variant const&
+		create(char const *type_str) const throw (char const*);
+
+	private:
+		factory_();
+		factory_(factory_ const &cp);
+		factory_& operator = (factory_ const &cp);
+
+		Storage storage_;
+	};
 	factory_::factory_()
 	: storage_()
 	{
@@ -33,10 +58,17 @@ namespace Yaks
 		return iter->second;
 
 	}
+	
+	/*
+	factory_* factory::Instance()
+	{ return &Loki::SingletonHolder<factory_>::Instance(); }
+	*/
+	
+	typedef Loki::SingletonHolder<factory_> factoryImpl;
 
-	factory_& factory::Instance()
-	{ return Loki::SingletonHolder<factory_>::Instance(); }
-
+	Variant const &
+	factory::create(char const* type_str)
+	{ return factoryImpl::Instance().create(type_str); }
 }// end of Yaks namespace
 
 //template class Loki::Singleton<Yaks::factory_>;
