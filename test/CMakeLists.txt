@@ -9,10 +9,13 @@ endif()
 
 link_directories( ${PROJECT_BINARY_DIR}/src )
 
+option(LINK_WITH_SHARED_LIB "Link tests with shared libyaks" ON)
+
+if(LINK_WITH_SHARED_LIB)
+	add_definitions(-DYAKS_DLL)
+endif()
+
 set(TESTS record scope)
-
-#add_definitions(-DYAKS_DLL)
-
 foreach(tg ${TESTS})
 	add_executable(${tg} ${tg}.cpp)
 	target_link_libraries(${tg} yaks)
