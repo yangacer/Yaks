@@ -3,7 +3,6 @@
 #include "yaks/record.hpp"
 #include "loki/Singleton.h"
 
-// LOKI_SINGLETON_INSTANCE_DEFINITION(Loki::SingletonHolder<Yaks::factory_>)
 
 namespace Yaks
 {
@@ -59,10 +58,6 @@ namespace Yaks
 
 	}
 	
-	/*
-	factory_* factory::Instance()
-	{ return &Loki::SingletonHolder<factory_>::Instance(); }
-	*/
 	
 	typedef Loki::SingletonHolder<factory_> factoryImpl;
 
@@ -71,4 +66,3 @@ namespace Yaks
 	{ return factoryImpl::Instance().create(type_str); }
 }// end of Yaks namespace
 
-//template class Loki::Singleton<Yaks::factory_>;
