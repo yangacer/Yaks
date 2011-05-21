@@ -1,8 +1,13 @@
-
-include_directories( D:/contrib/include
-	${PROJECT_SOURCE_DIR}/include )
+if(WIN32)
+	include_directories( D:/contrib/include
+		${PROJECT_SOURCE_DIR}/include )
+elseif(UNIX)
+	include_directories( /usr/local/include
+		${PROJECT_SOURCE_DIR}/include )
+endif()
 
 option (BUILD_SHARED_LIB "Build shared library" OFF)
+
 if(BUILD_SHARED_LIB)
 	set( LIB_TYPE SHARED)
 	add_definitions ( -DYAKS_MAKE_DLL )

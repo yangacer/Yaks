@@ -78,7 +78,7 @@ namespace Yaks
 		Index idx_;
 		InvertIndex ridx_, 
 			    types_;	// type strings are for information only
-		// they will not be used by record
+					// they will not be used by record
 		record *proto_;
 		std::string name_;
 		unsigned int version_;

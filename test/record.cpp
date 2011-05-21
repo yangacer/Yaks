@@ -23,6 +23,9 @@ struct rcmp
 	template<typename T,typename U>
 	bool operator()(T const& lhs, U const& rhs) const
 	{ return false; }
+
+	bool operator()( Yaks::record const &lhs, Yaks::record const &rhs) const
+	{ return false; }
 };
 
 template<template <class> class Op>
