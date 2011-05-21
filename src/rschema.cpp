@@ -99,7 +99,7 @@ namespace Yaks
 		}catch(...){
 			throw "rschema: defin_field failed";	
 		}
-
+		return *this;
 	}
 
 	bool
