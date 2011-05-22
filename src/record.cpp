@@ -42,7 +42,7 @@ struct str_in
 		std::stringstream cvt;
 		cvt.write(cstr_, size_);
 		cvt>>val;
-		return (bool)cvt;
+		return 0 != cvt;
 	}
 
 	bool operator()(std::string &val)

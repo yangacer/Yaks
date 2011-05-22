@@ -29,11 +29,12 @@ namespace Yaks
 		{
 			typedef boost::unordered_map<T,U> Type;
 		};
-
+		
 		typedef IndexCont<std::string, FIELD_INDEX>::Type Index;
 		typedef IndexCont<FIELD_INDEX, std::string>::Type InvertIndex;
 		typedef Index::const_iterator iterator;
-
+		
+		
 		rschema();
 
 		rschema(char const *name);

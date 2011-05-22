@@ -11,10 +11,8 @@
 #ifdef _WIN32
 #define EXPORT_SPEC __declspec(dllexport)
 #define IMPORT_SPEC __declspec(dllimport)
-#pragma warning( disable: 4290 )
-#pragma warning( disable: 4251 )
-#pragma warning( disable: 4099 )
-#pragma warning( disable: 4800 )
+#pragma warning( disable: 4290 ) // exception specification non-implmented
+#pragma warning( disable: 4251 ) // template export warning
 #pragma warning( disable: 4996 ) // allow POSIX 
 #endif
 

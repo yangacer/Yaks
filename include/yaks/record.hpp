@@ -15,7 +15,7 @@ namespace Yaks
 
 	struct rschema;
 
-	class YAKS_EXPORT record
+	struct YAKS_EXPORT record
 	{
 	friend struct rschema;
 	public:
