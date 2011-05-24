@@ -9,7 +9,7 @@ namespace Yaks
 {
 	struct rschema;
 	
-	class YAKS_EXPORT global_schema
+	class YAKS_EXPORT global_scope
 	{
 		typedef boost::unordered_map<std::string, rschema const*> StorageType;
 	public:

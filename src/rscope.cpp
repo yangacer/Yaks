@@ -6,16 +6,16 @@ static std::deque<Yaks::rschema const*> scope_chain_;
 
 namespace Yaks
 {
-	global_schema::StorageType global_schema::store_;
+	global_scope::StorageType global_scope::store_;
 
 	void 
-	global_schema::define(rschema const* rs)
+	global_scope::define(rschema const* rs)
 	{
 		store_[rs->name()] = rs;	
 	}
 
 	void
-	global_schema::undefine(rschema const* rs)
+	global_scope::undefine(rschema const* rs)
 	{	
 		StorageType::iterator iter;
 		if(store_.end() == ( iter = store_.find(rs->name()) ) )
@@ -24,7 +24,7 @@ namespace Yaks
 	}
 	
 	rschema const*
-	global_schema::find(char const *name)
+	global_scope::find(char const *name)
 	{
 		StorageType::iterator iter;
 		if(store_.end() == (iter = store_.find(name)))

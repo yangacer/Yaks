@@ -5,7 +5,7 @@
 #include "boost/unordered_map.hpp"
 #include "loki/Singleton.h"
 #include "yaks/export.hpp"
-#include "yaks/variantType.hpp"
+#include "yaks/variant.hpp"
 
 namespace Yaks
 {

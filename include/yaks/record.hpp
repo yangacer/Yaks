@@ -5,7 +5,7 @@
 #include <string>
 #include <iosfwd>
 
-#include "yaks/variantType.hpp"
+#include "yaks/variant.hpp"
 
 #include "yaks/rschema.hpp"
 #include "yaks/export.hpp"
@@ -27,7 +27,7 @@ namespace Yaks
 		
 		operator bool() const;
 
-		// --------------- Offset Operators -------------------
+		// --------------- Subscript Operators -------------------
 		Variant&
 		operator[](char const* field_name);
 
@@ -40,7 +40,7 @@ namespace Yaks
 		Variant&
 		at(unsigned int i) throw (char const*);
 
-		// -------------- Const Offset Operators -------------------
+		// -------------- Const Subscript Operators -------------------
 		
 		Variant const&
 		operator[](char const* field_name) const;
