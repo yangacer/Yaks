@@ -1,6 +1,7 @@
 #ifndef _RECORD_HPP_
 #define _RECORD_HPP_
 
+#include <stddef.h>
 #include <vector>
 #include <string>
 #include <iosfwd>
@@ -116,6 +117,8 @@ namespace Yaks
 		set(unsigned int off, T const & val);
 
 		// ----------------- Misc --------------------
+		size_t
+		field_count() const;
 
 		rschema const& schema() const;
 		

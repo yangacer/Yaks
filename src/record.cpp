@@ -172,6 +172,10 @@ namespace Yaks
 
 	// ----------------- Misc --------------------
 	
+	size_t
+	record::field_count() const
+	{ return vals_.size(); }
+
 	rschema const&
 	record::schema() const
 	{ return *schema_; } 
